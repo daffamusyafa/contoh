@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# Fungsi untuk instalasi Nginx
+install_nginx() {
+    echo "Memulai instalasi Nginx..."
+    sudo apt update
+    sudo apt install -y nginx
+    echo "Nginx berhasil diinstal."
+}
+
+# Fungsi untuk instalasi Apache2
+install_apache2() {
+    echo "Memulai instalasi Apache2..."
+    sudo apt update
+    sudo apt install -y apache2
+    echo "Apache2 berhasil diinstal."
+}
+
+# Menu pilihan untuk user
+echo "Pilih WebServer yang ingin diinstal:"
+echo "1. Nginx"
+echo "2. Apache2"
+read -p "Masukkan nomor pilihan Anda (1 atau 2): " choice
+
+case $choice in
+    1)
+        install_nginx
+        ;;
+    2)
+        install_apache2
+        ;;
+    *)
+        echo "Pilihan tidak valid. Silakan jalankan script lagi dan masukkan pilihan yang benar."
+        ;;
+esac
